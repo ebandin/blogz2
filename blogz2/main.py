@@ -57,7 +57,7 @@ def index():
                 title_error = "Must have a title."
 
             if post_body == "":
-                body_error = "Wheres the post!?"
+                body_error = "Must have a blog post"
 
             return render_template("add-post.html", title="Blogz",
                                    title_error=title_error, body_error=body_error, post_title=post_title, post_body=post_body)
@@ -130,8 +130,7 @@ def register():
                 session["username"] = username
                 return redirect("/add-post")
             else:
-                # TODO: use a better message here
-                return "<h1>Duplicate user</h1>"
+                username_error = username_error + " Duplicate user"
 
     return render_template("register.html", username_error=username_error, password_error=password_error, verify_error=verify_error, username=username)
 
