@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block content %}
+ <h1>Login</h1>
+            <form method="POST" action="/login" style="display:inline-block;">
+            <h5> Username </h5> 
+            </br> 
+            <input type="text" placeholder="username" value="{{request.form.username}}" name = "username" />  
+            </br> 
+            <h5> Password </h5> 
+            <input type="password" value="{{request.form.password}}" name="password"/>
+            </br> 
+            <input type="submit" value="Submit Query"/> 
+            </form> 
+            </br> 
+            <h6> Don't have an account? <a href="/signup"> Create one!</a></h6> 
+<strong>{{username_error}}
+{{password_error}}</strong> 
+
+{% endblock %}

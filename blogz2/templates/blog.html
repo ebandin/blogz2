@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+
+<h1>Posts by {{ username }}</h1>
+
+<ul>
+{% for post in posts %}
+<li><a href="/view-post?post={{ post.id }}">{{ post.title }}</a> on {{post.date}}</li>
+<li> {{ post.body }}</li>
+<br>
+{% endfor %}
+
+
+{% endblock %}

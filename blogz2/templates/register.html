@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Make a New Account</h1>
+<form action="/signup" method="post">
+    <table>
+        <tr>
+            <td><label for="username">username</label></td>
+            <td>
+                {% if username == "" %}
+              <input name="username" type="text" value="" />
+              {% else %}
+              <input name="username" type="text" value="{{ username }}" />
+              {% endif %}
+            </td>
+             {% if username_error != "" %}
+            <td>
+              <p class="error">{{ username_error }}</p>
+            </td>
+            {% endif %}
+        </tr>
+        <tr>
+            <td><label for="password">Password</label></td>
+            <td>
+                <input name="password" type="password">
+            </td>
+            {% if password_error != "" %}
+            <td>
+              <p class="error">{{ password_error }}</p>
+            </td>
+            {% endif %}
+        </tr>
+        <tr>
+            <td><label for="verify">Verify Password</label></td>
+            <td>
+                <input name="verify" type="password">
+            </td>
+            {% if verify_error != "" %}
+            <td>
+              <p class="error">{{ verify_error }}</p>
+            </td>
+            {% endif %}
+        </tr>
+    </table>
+    <input type="submit" value="Register">
+</form>
+{% endblock %}

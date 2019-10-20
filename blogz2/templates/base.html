@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" type="text/css" href="/static/styles.css" />
+    <title>Blogz</title>
+  </head>
+  <body>
+
+{% include "header.html" %}
+
+  {% with messages = get_flashed_messages(with_categories=True) %}
+  <ul>
+  {% for category, message in messages %}
+  <li class={{ category }}>{{ message }}</li>
+  
+  {% endfor %}
+  </ul>
+  {% endwith %}
+
+    {% block content %} 
+    {% endblock %}
+  </body>
+</html>

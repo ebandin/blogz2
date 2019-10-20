@@ -1,0 +1,29 @@
+{% block content %}
+
+<h1>Add a new Post</h1>
+
+    <div class="new-post container">
+    <form action="/add-post" method="post">
+        <div id="post-title-form">
+            <label for="post-title">Title</label>
+            <br>
+            {% if post_title != "" %}
+            <input name="post-title" type="text" value={{ post_title }}>
+            {% else %}
+            <input name="post-title" type="text" value="">
+            {% endif %}
+            <p class="error">{{ title_error }}</p>
+        </div>
+        <div id= "new-post-form">
+            <label for="new-post" type="text" value="new-post">Body</label>
+            <br>
+            <textarea name="new-post" cols="50" rows="10" value="post-body">{% if post_body != "" %}{{ post_body }}{% endif %}</textarea>
+            <p class="error">{{ body_error }}</p>
+        </div>
+        <div id="new-post-submit">
+            <input name="submit-post" type="submit" value="Submit">
+        </div>
+        </form>
+    </div> 
+
+{% endblock %}
